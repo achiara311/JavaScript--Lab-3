@@ -160,8 +160,14 @@ let elements = ["a", "b", "b", "c", "a", "a", "c", "c", "c", "c"];
 const countElements = (array) => {
     let countsObject = {};
     for (let i = 0; i < array.length; i++) {
-        let num = array[i];//plugging in here so we can plug this into countsObject
-        countsObject[num] = countsObject[num] ? countsObject[num] + 1 : 1;
+        let num = array[i];//container for array[i]
+        if (countsObject[num]) {//if object contains array strings,add it together by one
+            countsObject[num] += 1; //object[num] = object[num]+1
+        } else {
+            countsObject[num] = 1;//have it just be one
+        }
+        //OR
+        // countsObject[num] = countsObject[num] ? countsObject[num] + 1 : 1;
     }
     return countsObject;
 }
